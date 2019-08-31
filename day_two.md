@@ -36,6 +36,7 @@ docker build -t static-image:dev dockerizing/day_two
 ```
 
 ## Run docker by custom image we just build.
+Note: you may got error because of containter name `static-web` already use. So you shuld use different name or remove the current `static-web` containter.
 ```
 $ docker run -d --name static-web -p 8080:80 static-image:dev
 ```
@@ -49,3 +50,11 @@ LABEL maintainer="ledinhchung.it@gmail.com"
 
 COPY static/ /usr/share/nginx/html
 ```
+
+## Sumarry all command we have learn
+- `docker run` to create new container
+- `docker stop [containter name or id]` to stop a running container
+- `docker ps` to list all running container `-a` will also list stopped container.
+- `docker start [container name or id]` start one or more stopped container
+- `docker build` is to create an docker image from `Dockerfile`
+- `docker images` list all local docker images
